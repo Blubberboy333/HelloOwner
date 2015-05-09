@@ -1,4 +1,5 @@
-name: HelloOwner
+name: WelcomeOwner
 version: 1.0.0
 api: [1.1.0]
-main: HelloOwner\Main
+main: WelcomeOwner\MainClass
+
