@@ -18,13 +18,14 @@ class MainClass extends PluginBase implements Listener{
 		}
 	}
     public function onJoin(PlayerJoinEvent $event){
-		  $player = $event->getPlayer();
-          $owner = $this->getConfig()->get("Owner");
-	  	$name = $player->getDisplayName();
-	  	if($name == $owner){
-		  	$this->getServer()->broadcastMessage("The server owner has joined the game.");
-	  	}else{
-			
-	  	}
+    	$player = $event->getPlayer();
+	$owner = $this->getConfig()->get("Owner");
+	$coowner = $this->getConfig->get("CoOwner");
+	$name = $player->getDisplayName();
+	if($name == $owner){
+		$this->getServer()->broadcastMessage("The Owner has joined the game.");
+	}elseif($name == $coowner){
+		$this->getServer->broadcastMessage("The Co Owner has joined the game.")
+	}
     }
 }
