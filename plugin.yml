@@ -5,9 +5,24 @@ api: 1.1.0
 commands:
   owner:
     usage: /owner
-    description: Tells the player who the owner is
+    description: Tells the player who the Owner is
     permission: welcomeowner.command.owner
+  CoOwner:
+    usage: /coowner
+    description: Tells the player who the CoOwner is
+    permission: welcomeowner.command.coowner
 permissions:
-  welcomeowner.command.owner:
-    default: true
-    description: Allows the player to run the Owner command
+  welcomeowner:
+    default: false
+    description: Allows the player to use all of the WelcomeOwner functions
+    children:
+      welcomeowner.command:
+        default: false
+        description: Allows the player to use all of the WelcomeOwner commands
+        children:
+          welcomeowner.command.owner:
+            default: true
+            description: Allows the player to run the Owner command
+          welcomeowner.command.coowner:
+            default: true
+            description: Allows the player to run the CoOwner command
