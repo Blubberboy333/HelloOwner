@@ -18,7 +18,7 @@ class MainClass extends PluginBase implements Listener{
 		}
 	}
     public function onJoin(PlayerJoinEvent $event){
-    	$player = $event->getPlayer();
+    $player = $event->getPlayer();
 	$owner = $this->getConfig()->get("Owner");
 	$coowner = $this->getConfig->get("CoOwner");
 	$name = $player->getDisplayName();
@@ -27,5 +27,22 @@ class MainClass extends PluginBase implements Listener{
 	}elseif($name == $coowner){
 		$this->getServer->broadcastMessage("The Co Owner has joined the game.")
 	}
+    }
+    public function onCommand(CommandSender $sender, Command $command, $label, array $args){
+    	if(strtolower($command->getName()) === "owner"){
+    		$owner = $this->getConfig()->get("Owner");
+    		if($sender->hasPermission("welcomeowner.command.owner")){
+    			$sender->sendMessage("[WelcomeOwner] The Owner is" .$owner.);
+    		}else{
+    			$sender->sendMessage("You don't have permission to do that!");
+    		}
+    	}elseif(strtolower($command->getName()) === "coowner"){
+    		$coowner = $this->getConfig()->get("CoOwner");
+    		if($sender->hasPermission("welcomeowner.command.coowner")){
+    			$sender->sendMessage("[WelcomeOwner] The CO Owner is" .$coowner.);
+    		}else{
+    			$sender->sendMessage("You don't have permission to do that!");
+    		}
+    	}
     }
 }
