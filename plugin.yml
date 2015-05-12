@@ -2,3 +2,12 @@ name: WelcomeOwner
 main: WelcomeOwner\MainClass
 version: 1.0.0
 api: 1.1.0
+commands:
+  owner:
+    usage: /owner
+    description: Tells the player who the owner is
+    permission: welcomeowner.command.owner
+permissions:
+  welcomeowner.command.owner:
+    default: true
+    description: Allows the player to run the Owner command
