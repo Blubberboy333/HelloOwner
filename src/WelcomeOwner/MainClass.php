@@ -34,14 +34,14 @@ class MainClass extends PluginBase implements Listener{
     	if(strtolower($command->getName()) === "owner"){
     		$owner = $this->getConfig()->get("Owner");
     		if($sender->hasPermission("welcomeowner.command.owner")){
-    			$sender->sendMessage("[WelcomeOwner] The Owner is" .$owner.);
+    			$sender->sendMessage("[WelcomeOwner] The Owner is " .$owner.);
     		}else{
     			$sender->sendMessage("You don't have permission to do that!");
     		}
     	}elseif(strtolower($command->getName()) === "coowner"){
     		$coowner = $this->getConfig()->get("CoOwner");
     		if($sender->hasPermission("welcomeowner.command.coowner")){
-    			$sender->sendMessage("[WelcomeOwner] The CO Owner is" .$coowner.);
+    			$sender->sendMessage("[WelcomeOwner] The CO Owner is " .$coowner.);
     		}else{
     			$sender->sendMessage("You don't have permission to do that!");
     		}
