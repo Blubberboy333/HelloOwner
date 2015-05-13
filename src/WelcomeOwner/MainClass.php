@@ -8,6 +8,8 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\permission\ServerOperator;
 use pocketmine\Player;
 use pocketmine\Server;
+use pocketmine\command\CommandSender;
+use pocketmine\command\Command;
 
 class MainClass extends PluginBase implements Listener{
 	public function onEnable(){
@@ -25,7 +27,7 @@ class MainClass extends PluginBase implements Listener{
 	if($name == $owner){
 		$this->getServer()->broadcastMessage("The Owner has joined the game.");
 	}elseif($name == $coowner){
-		$this->getServer->broadcastMessage("The Co Owner has joined the game.")
+		$this->getServer->broadcastMessage("The Co Owner has joined the game.");
 	}
     }
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
