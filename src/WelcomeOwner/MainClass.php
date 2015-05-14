@@ -33,15 +33,25 @@ class MainClass extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
     	if(strtolower($command->getName()) === "owner"){
     		$owner = $this->getConfig()->get("Owner");
+    		$name = $sender->getDisplayName();
     		if($sender->hasPermission("welcomeowner.command.owner")){
-    			$sender->sendMessage("[WelcomeOwner] The Owner is " .$owner.);
-    		}else{
-    			$sender->sendMessage("You don't have permission to do that!");
-    		}
+    			if($name == $owner){
+    				$sender->sendMessage("[WelcomeOwner] You are the owner!");
+    			}else{
+    				$sender->sendMessage("[WelcomeOwner] The Owner is " .$owner.);
+    			}
+    			}else{
+    				$sender->sendMessage("You don't have permission to do that!");
+    			}
     	}elseif(strtolower($command->getName()) === "coowner"){
     		$coowner = $this->getConfig()->get("CoOwner");
+    		$name = $sender->getDisplay/name();
     		if($sender->hasPermission("welcomeowner.command.coowner")){
-    			$sender->sendMessage("[WelcomeOwner] The CO Owner is " .$coowner.);
+    			if($name == $coowner){
+    				$sender->sendMessage("[WelcomeOwner] You are the Co Owner!");
+    			}else{
+    				$sender->sendMessage("[WelcomeOwner] The CO Owner is " .$coowner.);
+    			}
     		}else{
     			$sender->sendMessage("You don't have permission to do that!");
     		}
